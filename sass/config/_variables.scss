@@ -18,8 +18,22 @@ $h4FontSize: 16px;
 $h5FontSize: $baseFontSize;
 $h6FontSize: 11px;
 
-$baseFontStack: verdana, Arial, sans-serif;
-$headingFontStack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//_ Sans:
+// jaf-facitweb
+// brandon-grotesque
+// ff-meta-web-pro
+// freight-sans-pro
+// ff-tisa-sans-web-pro
+// effra
+
+//_ Serif:
+//  freight-text-pro
+//  ff-tisa-web-pro
+//  adelle
+$sans: "effra";
+
+$baseFontStack: $sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headingFontStack: $sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $monoFontStack: Monaco, "Andale Mono", "Courier New", monospace;
 $uiControlFontStack: $headingFontStack;
 

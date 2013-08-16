@@ -208,7 +208,7 @@ input[type=submit], button, .button, .button-light, a.button {
 	zoom: 1;
 	color: $C_text;
 	font-weight: bold;
-	font-family: helvetica, arial, sans-serif;
+	font-family: $baseFontStack;
 	@include round($defaultRadius);
 	line-height: 1;
 	font-size: 16px;
