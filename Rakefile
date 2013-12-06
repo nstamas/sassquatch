@@ -1,9 +1,10 @@
 COMPILER    = "sass"
-SOURCES     = "sass/"
+SOURCES     = "sass/sassquatch"
 TARGET      = "css"
 JEKYLL_DIR  = "jekyll_docs"
 DOC_ASSETS  = "#{JEKYLL_DIR}/assets/css"
 HR          = "\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~\~"
+
 
 # compile sass & copy files into build/
 task :compile do
@@ -19,14 +20,7 @@ task :compile do
 	puts "#{HR}"
 	puts "Compiling SassQuatch for mobile"
 	puts "#{HR}"
-	sh "#{COMPILER} -q #{SOURCES}/sassquatch_mobile.scss #{TARGET}/sassquatch_mobile.css --style compressed"
-
-	# tests
-	puts
-	puts "#{HR}"
-	puts "Compiling tests"
-	puts "#{HR}"
-	sh "#{COMPILER} -q #{SOURCES}/sassquatch_tests.scss #{DOC_ASSETS}/sassquatch_tests.css"
+	sh "#{COMPILER} -q #{SOURCES}/sassquatch_m.scss #{TARGET}/sassquatch_mobile.css --style compressed"
 
 	# compile docs
 	puts
@@ -69,6 +63,7 @@ task :push_docs do
 	puts "\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\="
 
 	Rake::Task['compile'].execute
+	Rake::Task['docs'].execute
 
 	branch = `git rev-parse --abbrev-ref HEAD`
 
