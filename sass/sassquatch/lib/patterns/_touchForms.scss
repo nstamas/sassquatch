@@ -379,7 +379,7 @@ label.touchList-pseudoplaceholder {
 	font-size: $FS_base;
 	line-height: $LH_standard; // 1
 	width: 100%;
-	height: ((unit($H_touchTargetDefault) * 3) / (unit($FS_base) * 16)) * 1em; // 2
+	height: (($H_touchTargetDefault * 16) / ($FS_base * 16)) * 1em; // 2
 	padding: (($H_touchTargetDefault - $LH_standard) / 2) $P_secondary; // 3
 
 //	1	A slightly taller than standard line height is needed to prevent
