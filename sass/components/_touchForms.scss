@@ -379,15 +379,19 @@
 	 */
 	.touchList-item--select select {
 		font-size: $FS_base;
-		line-height: $LH_standard;
-		// NOTE: a slightly taller than standard line height is needed to prevent
-		// letter descenders from getting clipped off on Windows Phone 8.
+		line-height: $LH_standard; // 1
 		width: 100%;
-		height: $H_touchTargetDefault;
-		padding: (($H_touchTargetDefault - $LH_standard) / 2) $P_secondary;
-		// NOTE: this code is the same as for <input> elements, and potentially
-		// can be factored together once this is more stable.
+		height: ((unit($H_touchTargetDefault) * 3) / (unit($FS_base) * 16)) * 1em; // 2
+		padding: (($H_touchTargetDefault - $LH_standard) / 2) $P_secondary; // 3
 
+	//	1	A slightly taller than standard line height is needed to prevent
+	//		letter descenders from getting clipped off on Windows Phone 8.
+	//	2	Because this is one of the few cases where we have to put _both_
+	//		a revised height of 1.0625 (17px) _and_ the default touchable
+	//		height of 3em on the same elemtn, we need to convert the height
+	//		to ems relative to 17px. All this basically equals ~2.8235em.
+	//	3	This code is the same as for <input> elements, and potentially
+	//		can be factored together once this is more stable.
 	}
 
 
